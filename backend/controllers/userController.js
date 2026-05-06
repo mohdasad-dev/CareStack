@@ -5,6 +5,7 @@ import jwt from 'jsonwebtoken';
 import { v2 as cloudinary } from 'cloudinary';
 import doctorModel from "../models/doctorModel.js";
 import appointmentModel from "../models/appointmentModel.js";
+import razorpay from 'razorpay';
 
 // API to register user
 const registerUser = async (req, res) => {
@@ -157,6 +158,7 @@ const bookAppointment = async (req, res) => {
 
         const appointmentData = {
             userId,
+            name: userData.name,
             docId,
             userData,
             docData,
@@ -181,4 +183,82 @@ const bookAppointment = async (req, res) => {
     }
 }
 
-export { registerUser, userLogin, getProfile, updateProfile, bookAppointment }
+
+// API to get user appointment for frontend my-appointment pages
+
+const listAppointment = async (req, res) => {
+
+    try {
+        
+        const {userId} = req.body;
+        const appointments = await appointmentModel.find({userId})
+        res.json({success:true, appointments})
+    } catch (error) {
+        console.log(error)
+        res.json({ success: false, message: error.message });
+    }
+
+
+}
+
+
+// API to cancel appointment 
+
+
+const cancelAppointment = async(req, res) => {
+    try {
+
+        const {userId, appointmentId} = req.body;
+
+        const appointmentData = await appointmentModel.findById(appointmentId);
+
+        //verify appointment data user
+
+        if(appointmentData.userId !== userId){
+            return res.json({success:false, message: "Unauthorized action"})
+        }
+        
+
+        await appointmentModel.findByIdAndUpdate(appointmentId, {cancelled: true});
+
+        // Releasing doctor slot
+
+        const {docId, slotDate, slotTime} = appointmentData;
+
+        const doctorData = await doctorModel.findById(docId);
+
+        let slots_booked = doctorData.slots_booked;
+
+        slots_booked[slotDate] = slots_booked[slotDate].filter(e => e !== slotTime);
+
+        await doctorModel.findByIdAndUpdate(docId, {slots_booked});
+
+        res.json({success:true, message:"Appointment cancelled"});
+
+    } catch (error) {
+        console.log(error)
+        res.json({ success: false, message: error.message });
+    }
+}
+
+const razorpayInstance = new razorpay({
+    key_id: process.env.RAZORPAY_KEY_ID,
+    key_secret: process.env.RAZORPAY_KEY_SECRET,
+})
+// API to make payment of appointment using razorpay
+
+const paymentRazorpay = async (req, res) => {
+    const {appointmentId} = req.body;
+    const appointmentData = await appointmentModel.findById(appointmentId);
+
+    if(!appointmentData || appointmentData.cancelled){
+        return res.json({success:false, message: "Appointment Cancelled or not found"})
+    }
+
+    // creating ption for razorPay payment
+    
+}
+
+
+
+export { registerUser, userLogin, getProfile, updateProfile, bookAppointment, listAppointment, cancelAppointment}
