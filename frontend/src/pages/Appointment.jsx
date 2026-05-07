@@ -131,7 +131,7 @@ const Appointment = () => {
   }, [docInfo]);
 
   useEffect(() => {
-    console.log(docSlots)
+    // console.log(docSlots)
   }, [docSlots])
 
   return (
