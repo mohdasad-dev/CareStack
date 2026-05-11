@@ -8,8 +8,7 @@ const Footer = () => {
         {/* --------------------------------- Left section---------------------------------  */}
         <div>
             <img className='mb-5 w-40' src={assets.logo} alt="" />
-            <p className='w-full md:w-2/3 text-gray-600 leading-6'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque consequuntur, dignissimos facilis pariatur voluptate debitis aspernatur delectus iste! Architecto ea modi iste ratione nisi repudiandae laboriosam odit laborum, vero praesentium.
-            Cum ex dignissimos ea corrupti inventore! Neque placeat asperiores maxime doloremque quam enim illo ipsa perspiciatis, sequi eum incidunt eos aut excepturi facere, harum nemo in consequuntur et debitis est.</p>
+            <p className='w-full md:w-2/3 text-gray-600 leading-6'>Prescripto is a leading healthcare management platform dedicated to simplifying the way you connect with doctors. We strive to provide a seamless, secure, and user-friendly experience for booking appointments and managing your health records online. Your wellness is our priority, and we are committed to providing reliable access to top-tier medical professionals anytime, anywhere.</p>
         </div>
 
         {/* --------------------------------- Center section---------------------------------  */}

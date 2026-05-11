@@ -11,12 +11,12 @@ const About = () => {
       <div className='my-10 flex flex-col md:flex-row gap-12'>
         <img className='w-full md:max-w-90' src={assets.about_image} alt="" />
         <div className='flex flex-col justify-center gap-6 md:w-2/4 text-sm text-gray-600'>
-          <p>Welcome to CareStack, Your trusted partner in managing your healthcare *Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet sequi quam eum consequuntur officiis tenetur nostrum iusto nihil voluptatum corrupti? </p>
+          <p>Welcome to CareStack Your trusted partner in managing your healthcare journey. We bridge the gap between patients and quality care, making it simpler than ever to find, book, and manage your medical appointments online. </p>
 
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga repudiandae veritatis, rem, quam ex quasi ut dolor optio expedita at beatae. Rerum officia culpa quidem voluptatem maxime itaque magni, recusandae ipsum quos placeat pariatur nesciunt fuga suscipit corporis quo delectus?
+          <p>At CareStack, we believe that healthcare should be accessible, transparent, and patient-centric. Our platform is designed to take the stress out of scheduling, so you can focus on what matters most—your health and well-being.
           </p>
           <b className='text-gray-800'>Our vision</b>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit tempora aut, perspiciatis atque a dicta asperiores nemo cumque minima, quam obcaecati accusantium distinctio pariatur, ducimus adipisci ea aliquid officia? Sequi, eligendi qui. Molestias tenetur explicabo, ipsa consectetur hic ratione dolorum!</p>
+          <p>To create a world where quality healthcare is just a click away for everyone. We aim to empower patients with the tools they need to make informed decisions about their care while providing doctors with a streamlined way to reach those who need them most.</p>
         </div>
       </div>
 
@@ -27,15 +27,15 @@ const About = () => {
       <div className='flex flex-col md:flex-row mb-20'>
         <div className='border px-10 md:px-16 py-8 sm:py-16 flex flex-col gap-5 text-[15px] hover:bg-primary hover:text-white  transition-all duration-300 text-gray-600 cursor-pointer'>
           <b>Efficiency:</b>
-          <p>Streamlined appointment scheduling that fits into yous busy lifestyle.</p>
+          <p>Streamlined appointment scheduling that fits perfectly into your busy lifestyle.</p>
         </div>
         <div  className='border px-10 md:px-16 py-8 sm:py-16 flex flex-col gap-5 text-[15px] hover:bg-primary hover:text-white  transition-all duration-300 text-gray-600 cursor-pointer'>
           <b>Convenience:</b>
-          <p>Access to a network of trusted healthcare professionals in your area.</p>
+          <p>Access a vast network of trusted, board-certified healthcare professionals in your local area.</p>
         </div>
         <div className='border px-10 md:px-16 py-8 sm:py-16 flex flex-col gap-5 text-[15px] hover:bg-primary hover:text-white  transition-all duration-300 text-gray-600 cursor-pointer'>
           <b>Personalization:</b>
-          <p>Tailored recommendations and reminders to help you stay on top of your health.</p>
+          <p>Tailored health recommendations and smart reminders to help you stay on top of your wellness goals.</p>
         </div>
       </div>
     </div>
